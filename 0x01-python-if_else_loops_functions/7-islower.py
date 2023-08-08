@@ -2,5 +2,5 @@
 def islower(c):
     for i in range(ord('a'), ord('z')):
         if i == ord(c):
-            return TRUE
-    return FALSE
+            return 1
+    return 0
