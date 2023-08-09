@@ -8,12 +8,12 @@
  */
 int check_cycle(listint_t *list)
 {
-	const listint_t *turtle, *rabbit;
+	listint_t *turtle = list;
+	listint_t *rabbit = list;
 
 	if (!list)
 		return (0);
 
-	turtle = rabbit = list;
 	while (rabbit->next->next)
 	{
 		turtle = turtle->next;
