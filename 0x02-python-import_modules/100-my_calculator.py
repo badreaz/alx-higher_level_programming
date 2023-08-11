@@ -7,11 +7,11 @@ if __name__ == "__main__":
         exit 1
     elif argv[2] == '+':
         print("{:d} + {:d} = [:d}".format(int(argv[1]), int(argv[3]), add(argv[1], argv[3])))
-    elif argv[2] == '+':
+    elif argv[2] == '-':
         print("{:d} - {:d} = [:d}".format(int(argv[1]), int(argv[3]), sub(argv[1], argv[3])))
-    elif argv[2] == '+':
+    elif argv[2] == '*':
         print("{:d} * {:d} = [:d}".format(int(argv[1]), int(argv[3]), mul(argv[1], argv[3])))
-    elif argv[2] == '+':
+    elif argv[2] == '/':
         print("{:d} / {:d} = [:d}".format(int(argv[1]), int(argv[3]), div(argv[1], argv[3])))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
