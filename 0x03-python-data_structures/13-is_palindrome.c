@@ -22,7 +22,7 @@ int is_palindrome(listint_t **head)
 		prev = reverse;
 		reverse = next;
 	}
-	for (i = 0; ptr->next; i++)
+	for (i = 0; ptr; i++)
 	{
 		if (ptr->n != reverse->n)
 			return (0);
