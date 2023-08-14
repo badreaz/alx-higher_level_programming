@@ -23,12 +23,14 @@ int is_palindrome(listint_t **head)
 		reverse = next;
 	}
 	reverse = prev;
-	for (i = 0; ptr; i++)
+	for (i = 0; ptr && reverse; i++)
 	{
 		if (ptr->n != reverse->n)
 			return (0);
 		ptr = ptr->next;
 		reverse = reverse->next;
 	}
+	if (reverse)
+		return (0);
 	return (1);
 }
