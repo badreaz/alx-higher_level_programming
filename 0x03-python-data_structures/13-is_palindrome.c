@@ -8,29 +8,21 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int i;
-	listint_t *ptr = *head, *reverse = *head;
-	listint_t *prev, *next;
+	int i = 0, j;
+	listint_t *ptr = *head;
+	int list[1000];
 
-	prev = next = NULL;
 	if (!head || !*head)
 		return (1);
-	while (reverse)
+	while (ptr)
 	{
-		next = reverse->next;
-		reverse->next = prev;
-		prev = reverse;
-		reverse = next;
-	}
-	reverse = prev;
-	while (ptr && reverse)
-	{
-		if (ptr->n != reverse->n)
-			return (0);
+		list[i++] = ptr->n;
 		ptr = ptr->next;
-		reverse = reverse->next;
 	}
-	if (reverse)
-		return (0);
+	for (j = 0; j < i / 2; j++)
+	{
+		if (list[j] != list[i - j - 1])
+			return (0);
+	}
 	return (1);
 }
