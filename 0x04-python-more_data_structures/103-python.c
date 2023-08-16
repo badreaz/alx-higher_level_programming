@@ -1,4 +1,5 @@
-#include "Python.h"
+#include <Python.h>
+#include <stdio.h>
 
 /**
  * print_python_bytes - print basic info about python list bytes.
