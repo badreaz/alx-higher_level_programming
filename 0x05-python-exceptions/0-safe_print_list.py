@@ -6,4 +6,4 @@ def safe_print_list(my_list[], x=0):
         except Exception as err:
             break
     print()
-    return i + 1
+    return i
