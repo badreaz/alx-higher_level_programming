@@ -5,7 +5,7 @@
 class Node:
     """ defines a node of a singly linked list """
     def __init__(self, data, next_node=None):
-        """ 
+        """
         Args:
             data (int): node data
             next_node (:obj:'Node', optional): pointer to next node.
@@ -33,9 +33,10 @@ class Node:
     @nex_node.setter
     def next_node(self, value):
         """ set __next_node """
-        if not isinstance(value, Node) || value != None:
+        if not isinstance(value, Node) | | value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
+
 
 class SinglyLinkedList:
     """ defines a singly linked list """
@@ -55,8 +56,11 @@ class SinglyLinkedList:
         return line
 
     def sorted_insert(self, value):
-        """ insert new node in a sorted position """
-        if self.__head == None:
+        """ insert new node in a sorted position
+        Args:
+            value (int): node value.
+        """
+        if self.__head is None:
             self.__head = Node(value)
             return
         if not self.__head.next:
