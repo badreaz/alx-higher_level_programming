@@ -3,7 +3,7 @@
 
 
 class Square:
-    """Square class
+    """ class that definess square
 
     Args:
         size (int): square size.
@@ -15,8 +15,8 @@ class Square:
         size (int): square size.
     """
     def __init__(self, size=0):
-        if size < 0:
-            raise ValueError("size must be >= 0")
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
         self.__size = size
