@@ -48,7 +48,7 @@ class Square:
         res2 = any(map(lambda x: True if x < 0 else False, value))
         if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError("position must be a tuble of 2 positive integers")
-        if True in res1 or True in res2:
+        if len(res1) != 2 or len(res2) != 2:
             raise TypeError("position must be a tuble of 2 positive integers")
 
         self.__position = value
