@@ -5,11 +5,7 @@
 class Node:
     """ defines a node of a singly linked list """
     def __init__(self, data, next_node=None):
-        """
-        Args:
-            data (int): node data
-            next_node (:obj:'Node', optional): pointer to next node.
-        """
+        """ instantiation"""
         self.__data = data
         self.__next_node = next_node
 
