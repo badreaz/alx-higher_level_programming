@@ -19,9 +19,8 @@ class Square:
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
-        if not isinstance(vallue, tuble) || len(value) != 2 || \
-                not isinstance(value[0], int) || not isinstance(value[1], int) \
-                || value[0] < 0 || value[1] < 0:
+        res = any(map(lambda x: True if not isinstance(x, int) or x < 0 else False, position))
+        if not isinstance(position, tuple) or res:
             raise TypeError("position must be a tuble of 2 positive integers")
         self.__position = position
         self.__size = size
@@ -48,9 +47,8 @@ class Square:
     @position.setter
     def position(self, value):
         """ set a value to __position """
-        if not isinstance(vallue, tuble) || len(value) != 2 || \
-                not isinstance(value[0], int) || not isinstance(value[1], int) \
-                || value[0] < 0 || value[1] < 0:
+        res = any(map(lambda x: True if not isinstance(x, int) or x < 0 else False, value))
+        if not isinstance(value, tuple) or res:
             raise TypeError("position must be a tuble of 2 positive integers")
 
         self.__position = value
@@ -65,5 +63,5 @@ class Square:
             print()
         print('\n' * self.__position[1], end="")
         for i in range(self.__size):
-            print(' ' * self.__position[0], ennd="")
+            print(' ' * self.__position[0], end="")
             print('#' * self.__size)
