@@ -44,11 +44,10 @@ class Square:
     @position.setter
     def position(self, value):
         """ set a value to __position """
-        res1 = any(map(lambda x: False if isinstance(x, int) else True, value))
-        res2 = any(map(lambda x: True if x < 0 else False, value))
-        if not isinstance(value, tuple) or len(value) != 2:
-            raise TypeError("position must be a tuble of 2 positive integers")
-        if len(res1) != 2 or len(res2) != 2:
+        if (not isinstance(value, tuple) or
+                len(value) != 2 or
+                not all(isinstance(x, int) for x in value) or
+                all(x < 0 for x in value)):
             raise TypeError("position must be a tuble of 2 positive integers")
 
         self.__position = value
