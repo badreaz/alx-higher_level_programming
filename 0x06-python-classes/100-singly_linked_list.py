@@ -5,18 +5,22 @@
 class Node:
     """ defines a node of a singly linked list """
     def __init__(self, data, next_node=None):
-        """ instantiation"""
+        """ instantiation """
         self.__data = data
         self.__next_node = next_node
 
     @property
     def data(self):
-        """ retrieve __data value """
+        """ retrieve __data value 
+        Returns: data.
+        """
         return self.__data
 
     @propert
     def next_node(self):
-        """ retieve __next_node value """
+        """ retieve __next_node value
+        Returns: next_node.
+        """
         return self.__next_node
 
     @data.setter
@@ -52,7 +56,10 @@ class SinglyLinkedList:
         return line
 
     def sorted_insert(self, value):
-        """ insert new node in a sorted position """
+        """ insert new node in a sorted position
+        Args:
+            value: node value to be inserted.
+        """
         if self.__head is None:
             self.__head = Node(value)
             return
