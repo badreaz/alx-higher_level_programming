@@ -4,8 +4,10 @@
 
 class Node:
     """ defines a node of a singly linked list """
+    
     def __init__(self, data, next_node=None):
         """ instantiation """
+        
         self.__data = data
         self.__next_node = next_node
 
@@ -14,6 +16,7 @@ class Node:
         """ retrieve __data value 
         Returns: data.
         """
+        
         return self.__data
 
     @propert
@@ -21,11 +24,13 @@ class Node:
         """ retieve __next_node value
         Returns: next_node.
         """
+        
         return self.__next_node
 
     @data.setter
     def data(self, value):
         """ set __data """
+        
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
@@ -33,6 +38,7 @@ class Node:
     @nex_node.setter
     def next_node(self, value):
         """ set __next_node """
+        
         if not isinstance(value, Node) | | value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
@@ -43,10 +49,12 @@ class SinglyLinkedList:
 
     def __init__(self):
         """ simple instantation """
+        
         self.__head = None
 
     def __str__(self):
         """ printable """
+        
         line = ""
         node = self.__head
         while node:
@@ -60,6 +68,7 @@ class SinglyLinkedList:
         Args:
             value: node value to be inserted.
         """
+        
         if self.__head is None:
             self.__head = Node(value)
             return
