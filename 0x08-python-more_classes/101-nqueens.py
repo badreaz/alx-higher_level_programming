@@ -18,7 +18,10 @@ def nqueens(x):
         print(ans)
         del ans
 
+
 if __name__ == "__main__":
+    """ main function """
+
     if len(sys.argv) != 2:
         print("USAGE: nqueens N")
         sys.exit(1)
