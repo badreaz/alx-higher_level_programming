@@ -20,11 +20,11 @@ class Rectangle:
 
         rectangle = ""
         if not self.__width or not self.__height:
-            return ""
+            return rectangle
         for i in range(self.__height):
-            rectangle += '#' * self.__width
-            if i + 1 == self.__height:
-                rectangle += '\n'
+            rectangle += "#" * self.__width
+            if i is self.__height - 1:
+                rectangle += "\n"
         return rectangle
 
     @property
