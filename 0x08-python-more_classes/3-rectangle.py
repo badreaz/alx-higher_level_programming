@@ -23,7 +23,7 @@ class Rectangle:
             return rectangle
         for i in range(self.__height):
             rectangle += "#" * self.__width
-            if i is self.__height - 1:
+            if i is not self.__height - 1:
                 rectangle += "\n"
         return rectangle
 
