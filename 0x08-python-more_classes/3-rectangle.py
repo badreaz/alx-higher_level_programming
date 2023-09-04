@@ -19,6 +19,8 @@ class Rectangle:
         """ print the rectangle with the character '#' """
 
         rectangle = ""
+        if not self.__width or not self.__height:
+            return ""
         for i in range(self.__height):
             rectangle += '#' * self.__width
             if i + 1 == self.__height:
