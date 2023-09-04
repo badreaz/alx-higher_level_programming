@@ -26,7 +26,7 @@ class Rectangle:
         if not self.__width or not self.__height:
             return rectangle
         for i in range(self.__height):
-            rectangle += Rectangle.print_symbol * self.__width
+            rectangle += str(self.print_symbol) * self.__width
             if i is not self.__height - 1:
                 rectangle += "\n"
         return rectangle
