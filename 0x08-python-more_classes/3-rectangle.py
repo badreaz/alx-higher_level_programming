@@ -21,8 +21,8 @@ class Rectangle:
         rectangle = ""
         for i in range(self.__height):
             rectangle += '#' * self.__width
-            rectangle += '\n'
-        rectangle -= '\n'
+            if i + 1 == self.__height:
+                rectangle += '\n'
         return rectangle
 
     @property
