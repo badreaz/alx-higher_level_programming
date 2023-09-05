@@ -5,7 +5,7 @@ import sys
 
 def nqueens(x):
     """ find every possible non-attackin queen """
-    
+
     row = x - 1
     if x % 2:
         row = x - 2
