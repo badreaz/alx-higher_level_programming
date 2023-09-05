@@ -5,8 +5,11 @@ import sys
 
 def nqueens(x):
     """ find every possible non-attackin queen """
-
-    for i in range(1, x - 1):
+    
+    row = x - 1
+    if x % 2:
+        row = x - 2
+    for i in range(1, row):
         k = i
         ans = list()
         for j in range(x):
@@ -23,7 +26,7 @@ if __name__ == "__main__":
     """ main function """
 
     if len(sys.argv) != 2:
-        print("USAGE: nqueens N")
+        print("Usage: nqueens N")
         sys.exit(1)
     if not sys.argv[1].isdigit():
         print("N must be a number")
