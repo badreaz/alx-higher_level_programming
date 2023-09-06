@@ -10,11 +10,11 @@ def nqueens(x):
         """ check if a queen can be placed at this location """
 
         for i in range(row):
-            if ans[i][col] == 'Q':
+            if pos[i][col] == 'Q':
                 return False
-            elif col - i >= 0 and ans[row - i][col - i] == 'Q':
+            elif col - i >= 0 and pos[row - i][col - i] == 'Q':
                 return False
-            elif col + i < x and ans[row - i][col + i] == 'Q':
+            elif col + i < x and pos[row - i][col + i] == 'Q':
                 return False
         return True
 
@@ -22,18 +22,24 @@ def nqueens(x):
         """ find a valid solution """
 
         if row == x:
-            pos.append(["".join(row) for row in ans])
+            ansr = []
+            for i in range(x):
+                for j in range(x):
+                    if pos[i][j] == 'Q':
+                        ansr.append([i, j])
+            ans.append(ansr)
             return
         for col in range(x):
             if solution(ans, row, col):
-                ans[row][col] = 'Q'
+                pos[row][col] = 'Q'
                 backtrack(row + 1)
-                ans[row][col] = '.'
-    pos = []
-    ans = [['.' for _ in range(x)] for _ in range(x)]
+                pos[row][col] = '.'
+
+    pos = [['.' for _ in range(x)] for _ in range(x)]
+    ans = []
     backtrack(0)
-    print(ans)
-    del ans
+    for r in ans:
+        print(r)
 
 
 if __name__ == "__main__":
