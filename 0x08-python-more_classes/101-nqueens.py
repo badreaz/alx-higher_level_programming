@@ -3,43 +3,41 @@
 import sys
 
 
-def nqueens(x):
-    """ find every possible non-attackin queen """
+def nqueens(N):
+    """ find every possible non-attacking queen """
 
-    def solution(ans, row, col):
-        """ check if a queen can be placed at this location """
+    def is_safe(row, col):
+        """ check if a queen be placed at this location """
 
         for i in range(row):
-            if pos[i][col] == 'Q':
+            if board[i] == col:
                 return False
-            elif col - i >= 0 and pos[row - i][col - i] == 'Q':
+            elif board[i] - i == col - row:
                 return False
-            elif col + i < x and pos[row - i][col + i] == 'Q':
+            elif board[i] + i == col + row:
                 return False
         return True
 
-    def backtrack(row):
-        """ find a valid solution """
+    def solve_nqueens(row):
+        """ find a valid locations """
 
-        if row == x:
-            ansr = []
-            for i in range(x):
-                for j in range(x):
-                    if pos[i][j] == 'Q':
-                        ansr.append([i, j])
-            ans.append(ansr)
+        if row == N:
+            solutions.append(list(board))
             return
-        for col in range(x):
-            if solution(ans, row, col):
-                pos[row][col] = 'Q'
-                backtrack(row + 1)
-                pos[row][col] = '.'
 
-    pos = [['.' for _ in range(x)] for _ in range(x)]
-    ans = []
-    backtrack(0)
-    for r in ans:
-        print(r)
+        for col in range(N):
+            if is_safe(row, col):
+                board[row] = col
+                solve_nqueens(row + 1)                
+                board[row] = col
+
+    board = [-1] * N
+    solutions = []
+    solve_nqueens(0)
+
+    for solution in solutions:
+        formatted_solution = [[i, col] for i, col in enumerate(solution)]    
+        print(formatted_solution)
 
 
 if __name__ == "__main__":
