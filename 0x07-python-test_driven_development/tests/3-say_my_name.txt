@@ -11,3 +11,11 @@ Traceback (most recent call last):
 TypeError: first_name must be a string
 >>> say_my_name("smith")
 My name is smith 
+>>> say_my_name(None)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+>>> say_my_name("name", 3)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
