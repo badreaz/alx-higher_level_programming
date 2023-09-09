@@ -35,3 +35,5 @@ Traceback (most recent call last):
   File "/home/user/alx/alx_higher_level_programming/0x07-python-test_driven_development/2-matrix_divided.py", line 13, in matrix_divided
     raise ZeroDivisionError("division bby zero")
 ZeroDivisionError: division by zero
+>>> matrix_divided([[0, 0], [0, 0]], 1)
+[[0.0, 0.0], [0.0, 0.0]]
