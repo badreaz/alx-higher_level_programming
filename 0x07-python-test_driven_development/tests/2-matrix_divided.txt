@@ -1,0 +1,37 @@
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided(None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+>>> matrix_divided(None, 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], None)
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+>>> matrix_divided([[1, "c", 3], [4, 5, 6]], None)
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+>>> matrix_divided([[1, 2, 3], [4, 5, 6, 7]], None)
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+>>> matrix_divided([[1, 2, 3], [4, 5, 6, 7]], 3)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+>>> matrix_divided([[1, "c", 3], [4, 5, 6]], 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/user/alx/alx_higher_level_programming/0x07-python-test_driven_development/2-matrix_divided.py", line 13, in matrix_divided
+    raise ZeroDivisionError("division bby zero")
+ZeroDivisionError: division by zero
