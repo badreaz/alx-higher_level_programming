@@ -2,6 +2,9 @@
 """ Rectangle class module """
 
 
+BaseGeometry = __import("7-base_geometry").BaseGeometry
+
+
 class Rectangle(BaseGeometry):
     """ class that inherits from BaseGeometry """
 
