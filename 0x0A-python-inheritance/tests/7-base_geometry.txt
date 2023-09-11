@@ -38,3 +38,15 @@ TypeError: integer_validator() missing 1 required positional argument: 'value'
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
+>>> bg.area(2)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 2 were given
+>>> bg.integer_validator("age", [8])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", {37})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
