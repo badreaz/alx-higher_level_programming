@@ -6,7 +6,7 @@ class BaseGeometry:
     """ class implementation """
 
     def area(self):
-        """ find area 
+        """ find area
         Raises:
             Exception: area() is not implemented
         """
