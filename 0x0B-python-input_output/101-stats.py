@@ -4,7 +4,7 @@ import sys
 
 
 size = 0
-lnum = 1
+lnum = 0
 vcodes = ['200', '301', '400', '401', '403', '404', '405', '500']
 codes = {}
 
