@@ -22,7 +22,7 @@ try:
 
         try:
             size += int(line[-1])
-        except IndexError, ValueError:
+        except (IndexError, ValueError):
             pass
 
         try:
