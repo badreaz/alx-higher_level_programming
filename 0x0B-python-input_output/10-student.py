@@ -22,6 +22,6 @@ class Student():
             attrs: sttributes to represent.
         """
         if type(attrs) is list and all(type(x) is str for x in attrs):
-            dic = dict(getattr(self, x) for x in attrs if hasattr(self, x))
+            dic = {x: getattr(self, x) for x in attrs if hasattr(self, x)}
             return dic
         return self.__dict__
