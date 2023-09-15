@@ -53,3 +53,8 @@ class Square(Rectangle):
         else:
             for k, v in kwargs.iteritems():
                 self.k = v
+
+    def to_dictionary(self):
+        """ returns dictionary representation of a square """
+
+        return self.__dict__
