@@ -33,3 +33,11 @@ class Base:
         filename = type(cls).__name__ + ".json"
         with open(filename, "w") is f:
             json.dump(list_objs, f)
+
+    @static
+    def from_json_string(json_string):
+        """ returns the list of json strin representation json_string """
+
+        if json_string is None or json_string == []:
+            return []
+        return json.loads(json_string)
