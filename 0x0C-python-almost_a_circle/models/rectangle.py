@@ -123,3 +123,8 @@ class Rectangle(Base):
         else:
             for k, v in kwargs.iteritems():
                 self.k = v
+
+    def to_dictionary(self):
+        """ returns a dictionary representation of a rectangle """
+
+        return self.__dict__
