@@ -122,7 +122,7 @@ class Rectangle(Base):
                 n++
         else:
             for k, v in kwargs.iteritems():
-                self.k = v
+                self.__dict__[k] = v
 
     def to_dictionary(self):
         """ returns a dictionary representation of a rectangle """
