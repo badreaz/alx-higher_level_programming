@@ -20,7 +20,7 @@ class Square(Rectangle):
     def __str__(self):
         """ return square data """
 
-        return "[Square] [{}] {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
@@ -52,7 +52,7 @@ class Square(Rectangle):
                 n++
         else:
             for k, v in kwargs.iteritems():
-                self.k = v
+                self.__dict__[k] = v
 
     def to_dictionary(self):
         """ returns dictionary representation of a square """
