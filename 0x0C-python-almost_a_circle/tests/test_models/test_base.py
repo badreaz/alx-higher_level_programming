@@ -18,11 +18,11 @@ class TestBase(unittest.TestCase):
     def test_to_json(self):
         """ tests for converting objects to json striing """
         dictionaryl = [{'hello': 3, 'python': 6}, {'extra': 4}]
-        result = '[{\'hello\': 3, \'python\': 6}, {\'extra\': 4}]'
+        result = "[{\"hello\": 3, \"python\": 6}, {\"extra\": 4}]"
         self.assertEqual(Base.to_json_string(dictionaryl), result)
 
     def test_from_json(self):
         """ tests for converting json string to object """
-        string = '[{\'hello\': 3, \'python\': 6}, {\'extra\': 4}]'
+        string = "[{\"hello\": 3, \"python\": 6}, {\"extra\": 4}]"
         result = [{'hello': 3, 'python': 6}, {'extra': 4}]
-        self.assertEqual(Base.from_json_to_string(string), result)
+        self.assertEqual(Base.from_json_string(string), result)
