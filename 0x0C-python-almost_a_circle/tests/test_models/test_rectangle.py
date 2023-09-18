@@ -12,8 +12,8 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 2)
         r2 = Rectangle(2, 10)
         r3 = Rectangle(10, 2, 0, 4, 12)
-        self.assertEqual(r1.id, 5)
-        self.assertEqual(r2.id, 6)
+        self.assertEqual(r1.id, 3)
+        self.assertEqual(r2.id, 4)
         self.assertEqual(r3.id, 12)
         self.assertEqual(r1.width, 10)
         self.assertEqual(r2.width, 2)
@@ -26,20 +26,20 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(4, 6, 2, 1, 12)
         r2 = Rectangle(5, 5, 1)
         r1_str = "[Rectangle] (12) 2/1 - 4/6"
-        r2_str = "[Rectangle] (7) 1/0 - 5/5"
+        r2_str = "[Rectangle] (5) 1/0 - 5/5"
         self.assertEqual(str(r1), r1_str)
         self.assertEqual(str(r2), r2_str)
 
     def test_update(self):
         """ tests for update method """
         r = Rectangle(10, 10, 10, 10)
-        r1_str = "[Rectangle] (10) 10/10 - 10/10"
+        r1_str = "[Rectangle] (8) 10/10 - 10/10"
         self.assertEqual(str(r), r1_str)
         r.update(height=1)
-        r2_str = "[Rectangle] (10) 10/10 - 10/1"
+        r2_str = "[Rectangle] (8) 10/10 - 10/1"
         self.assertEqual(str(r), r2_str)
         r.update(width=1, x=2)
-        r3_str = "[Rectangle] (10) 2/10 - 1/1"
+        r3_str = "[Rectangle] (8) 2/10 - 1/1"
         self.assertEqual(str(r), r3_str)
         r.update(y=1, width=2, x=3, id=98)
         r4_str = "[Rectangle] (98) 3/1 - 2/1"
@@ -57,7 +57,7 @@ class TestRectangle(unittest.TestCase):
     def test_to_dictionary(self):
         """ tests for dictionary method """
         r1 = Rectangle(10, 2, 1, 9)
-        r1_dictionary = {'x': 1, 'y': 9, 'id': 8, 'height': 2, 'width': 10}
+        r1_dictionary = {'x': 1, 'y': 9, 'id': 6, 'height': 2, 'width': 10}
         self.assertEqual(r1.to_dictionary(), r1_dictionary)
         self.assertEqual(type(r1.to_dictionary()), dict)
         r2 = Rectangle(1, 1)
