@@ -64,11 +64,14 @@ class Base:
 
         filename = cls.__name__ + ".json"
         inst_list = []
-        with open(filename, "r") as f:
-            objs = cls.from_json_string(f.read())
-            for new in objs:
-                inst_list.append(cls.create(**new))
-        return inst_list
+        try:
+            with open(filename, "r") as f:
+                objs = cls.from_json_string(f.read())
+                for new in objs:
+                    inst_list.append(cls.create(**new))
+            return inst_list
+        except IOError:
+            return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -100,14 +103,17 @@ class Base:
 
         filename = cls.__name__ + ".csv"
         list_objs = []
-        with open(filename, "r") as f:
-            form = f.readline().replace('\n', '').split(',')
-            for line in f:
-                values = line.replace('\n', '').split(',')
-                dictionary = dict(zip(form, int(value)))
-                obj = cls.create(**dictionary)
-                list_objs.append(obj)
-        return list_objs
+        try:
+            with open(filename, "r") as f:
+                form = f.readline().replace('\n', '').split(',')
+                for line in f:
+                    values = line.replace('\n', '').split(',')
+                    dictionary = dict(zip(form, int(value)))
+                    obj = cls.create(**dictionary)
+                    list_objs.append(obj)
+            return list_objs
+        except IOError:
+            return []
 
     @staticmethod
     def draw(list_rectangles, list_square):
