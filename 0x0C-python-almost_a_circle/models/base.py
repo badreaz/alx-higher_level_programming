@@ -52,7 +52,7 @@ class Base:
         """ returns an instance with all attributes set """
 
         name = cls.__name__
-        if not dectionary:
+        if not dictionary:
             return
         dummy = cls(1, 1)
         dummy.update(**dictionary)
