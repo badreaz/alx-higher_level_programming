@@ -32,12 +32,12 @@ class Base:
         """ writes the json string representation of list_objs """
 
         filename = cls.__name__ + ".json"
-        with open(filename, "w", "utf-8") as f:
+        with open(filename, "w", encoding="utf-8") as f:
             dic = []
             if list_objs:
                 for obj in list_objs:
                     dic.append(obj.to_dictionary())
-            f.write(Base.to_json_string(dic))
+            f.write(cls.to_json_string(dic))
 
     @staticmethod
     def from_json_string(json_string):
@@ -62,7 +62,7 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, "r") as f:
             inst_list = []
-            objs = cls.from_json_string(f.read().replace('\n', ''))
+            objs = from_json_string(f.read().replace('\n', ''))
             for new in objs:
                 inst_list.append(cls.create(**new))
             return inst_list
