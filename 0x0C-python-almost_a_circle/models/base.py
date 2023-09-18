@@ -51,6 +51,9 @@ class Base:
     def create(cls, **dictionary):
         """ returns an instance with all attributes set """
 
+        name = cls.__name__
+        if name != "Rectangle" and name != "Square":
+            return
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
