@@ -100,7 +100,7 @@ class Base:
                 csv_r = csv.DictReader(f)
                 for line in csv_r:
                     for k, v in line.items():
-                            line[k] = int(v)
+                        line[k] = int(v)
                     obj = cls.create(**line)
                     list_objs.append(obj)
             return list_objs
