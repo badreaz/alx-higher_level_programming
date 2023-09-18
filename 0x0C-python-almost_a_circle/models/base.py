@@ -52,7 +52,7 @@ class Base:
         """ returns an instance with all attributes set """
 
         name = cls.__name__
-        if name != "Rectangle" and name != "Square":
+        if not dectionary:
             return
         dummy = cls(1, 1)
         dummy.update(**dictionary)
