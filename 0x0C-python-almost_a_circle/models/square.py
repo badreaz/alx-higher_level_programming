@@ -15,7 +15,6 @@ class Square(Rectangle):
             y: y-axis.
             id: instance id.
         """
-        self.size = size
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
@@ -29,7 +28,7 @@ class Square(Rectangle):
     def size(self):
         """ property to retrieve size """
 
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -37,7 +36,6 @@ class Square(Rectangle):
 
         self.width = value
         self.height = value
-        self.__size = value
 
     def update(self, *args, **kwargs):
         """ update the class attributes """
