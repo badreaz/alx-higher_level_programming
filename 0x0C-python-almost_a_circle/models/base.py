@@ -61,3 +61,38 @@ class Base:
                 new = from_json_string(line)
                 inst_list.append(cls.create(**new))
             return inst_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ serialize an object to csv """
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w") is f:
+            if cls.__name__ == "Rectangle":
+                for obj in list_objs:
+                    id = obj.id
+                    w = obj.width
+                    h = obj.height
+                    x = obj.x
+                    y = obj.y
+                    f.write("{}, {}, {}, {}, {}".format(id, w, h, x, y))
+            else:
+                for obj in list_obj:
+                    id = obj.id
+                    s = obj.size
+                    x = obj.x
+                    y = obj.y
+                    f.write("{}, {}, {}, {}".format(id, s, x, y))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ deserialize an csv to an object """
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, "r") is f:
+            list_objs = []
+            form = f.readline().replace('\n', '').split(',')
+            for line in f:
+                dictionary = dict(zip(form, int(line.replace('\n', '').split(','))))
+                obj = cls.create(**dictionary)
+                list_objs.append(obj)
