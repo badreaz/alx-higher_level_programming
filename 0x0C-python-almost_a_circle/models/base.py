@@ -52,9 +52,10 @@ class Base:
         """ returns an instance with all attributes set """
 
         name = cls.__name__
-        if not dictionary:
-            return
-        dummy = cls(1, 1)
+        if name == "Rectangle":
+            dummy = cls(1, 1)
+        else:
+            dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
 
