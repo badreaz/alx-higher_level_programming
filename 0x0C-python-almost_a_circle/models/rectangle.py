@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Rectangle class module """
-Base = __import__("base").Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -97,34 +97,25 @@ class Rectangle(Base):
     def display(self):
         """ prits the instance with '#' """
 
-        for i in range(self.__y):
+        for i in range(self.y):
             print()
-        for i in range(self.__height):
-            print(' ' * self.__x, end="")
-            print('#' * self.__width)
+        for i in range(self.height):
+            print(' ' * self.x, end="")
+            print('#' * self.width)
 
     def update(self, *args, **kwargs):
         """ assigns an argument to each sttribute """
 
-        if args is not None:
-            n = 1
-            for arg in args:
-                if n == 1:
-                    self.id = arg
-                elif n == 2:
-                    self.width = arg
-                elif n == 3:
-                    self.height = arg
-                elif n == 4:
-                    self.x = arg
-                elif n == 5:
-                    self.y = arg
-                n++
+        if args:
+            attr = ['id', 'width', 'height', 'x', 'y']
+            for n, arg in enumerate(args):
+                setattr(self, attr[n], arg)
         else:
-            for k, v in kwargs.iteritems():
-                self.__dict__[k] = v
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def to_dictionary(self):
         """ returns a dictionary representation of a rectangle """
 
-        return self.__dict__
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'width': self.width, 'height': self.height}
