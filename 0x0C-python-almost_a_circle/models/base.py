@@ -91,7 +91,7 @@ class Base:
                     f.write("{},{},{},{},{}\n".format(id, w, h, x, y))
             else:
                 f.write("id,size,x,y\n")
-                for obj in list_obj:
+                for obj in list_objs:
                     id = obj.id
                     s = obj.size
                     x = obj.x
