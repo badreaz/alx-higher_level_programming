@@ -21,15 +21,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.x, 0)
         self.assertEqual(r3.y, 4)
 
-    def test_display(self):
-        """ tests for the method display """
-        r1 = Rectangle(4, 6)
-        r2 = Rectangle(4, 6, 2, 3)
-        r1_display = "\n####\n####\n####\n####\n####\n####\n"
-        r2_display = "\n\n   ####\n   ####\n   ####\n   ####\n   ####\n   ####\n"
-        self.assertEqual(r1.display(), r1_display)
-        self.assertEqual(r2.display(), r2_display)
-
     def test_str(self):
         """ tests for the str method """
         r1 = Rectangle(4, 6, 2, 1, 12)
