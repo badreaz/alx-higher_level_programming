@@ -62,7 +62,7 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, "r") as f:
             inst_list = []
-            objs = cls.from_json_string(f.read().replace('\n', '')
+            objs = cls.from_json_string(f.read().replace('\n', ''))
             for new in objs:
                 inst_list.append(cls.create(**new))
             return inst_list
