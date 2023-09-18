@@ -30,20 +30,19 @@ class Base:
     def save_to_file(cls, list_objs):
         """ writes the json string representation of list_objs """
 
-        if not list_objs:
-            return
         filename = cls.__name__ + ".json"
         with open(filename, "w", "utf-8") as f:
             dic = []
-            for obj in list_objs:
-                dic.append(obj.to_dictionary())
+            if list_objs:
+                for obj in list_objs:
+                    dic.append(obj.to_dictionary())
             f.write(Base.to_json_string(dic))
 
     @staticmethod
     def from_json_string(json_string):
         """ returns the list of json strin representation json_string """
 
-        if json_string is None or not len(json_string):
+        if not json_string or not len(json_string):
             return []
         return json.loads(json_string)
 
@@ -51,7 +50,7 @@ class Base:
     def create(cls, **dictionary):
         """ returns an instance with all attributes set """
 
-        dummy = cls(0, 0)
+        dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
@@ -100,7 +99,8 @@ class Base:
             list_objs = []
             form = f.readline().replace('\n', '').split(',')
             for line in f:
-                dictionary = dict(zip(form, int(line.replace('\n', '').split(','))))
+                values = line.replace('\n', '').split(',')
+                dictionary = dict(zip(form, int(value)))
                 obj = cls.create(**dictionary)
                 list_objs.append(obj)
             return list_objs
