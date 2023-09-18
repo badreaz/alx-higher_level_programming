@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Square class module """
-Rectangle = __import__("rectangle").Rectangle
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
@@ -38,23 +38,16 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """ update the class attributes """
 
-        if args is not None:
-            n = 1
-            for arg in args:
-                if n == 1:
-                    self.id = arg
-                elif n == 2:
-                    self.size = arg
-                elif n == 3:
-                    self.x
-                elif n == 4:
-                    self.y
-                n++
+        if args:
+            attr = ['id', 'size', 'x', 'y']
+            for n, arg in enumerate(args):
+                setattr(self, attr[n], arg)
         else:
-            for k, v in kwargs.iteritems():
-                self.__dict__[k] = v
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def to_dictionary(self):
         """ returns dictionary representation of a square """
 
-        return self.__dict__
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                                'size': self.size}
