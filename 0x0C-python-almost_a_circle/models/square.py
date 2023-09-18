@@ -15,18 +15,21 @@ class Square(Rectangle):
             y: y-axis.
             id: instance id.
         """
+        self.size = size
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """ return square data """
 
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        id = self.id
+        x, y, s = self.x, self.y, self.size
+        return "[Square] ({}) {}/{} - {}".format(id, x, y, size)
 
     @property
     def size(self):
         """ property to retrieve size """
 
-        return self.width
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -34,6 +37,7 @@ class Square(Rectangle):
 
         self.width = value
         self.height = value
+        self.__size = vallue
 
     def update(self, *args, **kwargs):
         """ update the class attributes """
@@ -49,5 +53,4 @@ class Square(Rectangle):
     def to_dictionary(self):
         """ returns dictionary representation of a square """
 
-        return {'x': self.x, 'y': self.y, 'id': self.id,
-                                'size': self.size}
+        return {'x': self.x, 'y': self.y, 'id': self.id,'size': self.size}
