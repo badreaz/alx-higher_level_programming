@@ -60,12 +60,12 @@ class Base:
         """ returns a list of instance """
 
         filename = cls.__name__ + ".json"
+        inst_list = []
         with open(filename, "r") as f:
-            inst_list = []
             objs = from_json_string(f.read().replace('\n', ''))
             for new in objs:
                 inst_list.append(cls.create(**new))
-            return inst_list
+        return inst_list
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -96,15 +96,15 @@ class Base:
         """ deserialize an csv to an object """
 
         filename = cls.__name__ + ".csv"
+        list_objs = []
         with open(filename, "r") as f:
-            list_objs = []
             form = f.readline().replace('\n', '').split(',')
             for line in f:
                 values = line.replace('\n', '').split(',')
                 dictionary = dict(zip(form, int(value)))
                 obj = cls.create(**dictionary)
                 list_objs.append(obj)
-            return list_objs
+        return list_objs
 
     @staticmethod
     def draw(list_rectangles, list_square):
