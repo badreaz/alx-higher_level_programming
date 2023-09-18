@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Base class module """
 import json
+import turtle
 
 
 class Base:
@@ -104,3 +105,20 @@ class Base:
                 obj = cls.create(**dictionary)
                 list_objs.append(obj)
             return list_objs
+
+    @staticmethod
+    def draw(list_rectangles, list_square):
+        """ draws Rectangles and Squarea """
+
+        t = turtle.Turtle()
+        list_shapes = list_rectangles + list_square
+        for shape in list_shapes:
+            t.penup()
+            t.goto(shape.x, shape.y)
+            t.pendown()
+            for _ in range(2):
+                t.forward(shape.width)
+                t.right(90)
+                t.forward(shape.height)
+                t.right(90)
+        turtle.done()
