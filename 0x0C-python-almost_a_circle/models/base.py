@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Base class module """
 import json
+import csv
 import turtle
 
 
@@ -80,23 +81,13 @@ class Base:
 
         filename = cls.__name__ + ".csv"
         with open(filename, "w") as f:
-            if cls.__name__ == "Rectangle":
-                f.write("id,width,height,x,y\n")
-                for obj in list_objs:
-                    id = obj.id
-                    w = obj.width
-                    h = obj.height
-                    x = obj.x
-                    y = obj.y
-                    f.write("{},{},{},{},{}\n".format(id, w, h, x, y))
-            else:
-                f.write("id,size,x,y\n")
-                for obj in list_objs:
-                    id = obj.id
-                    s = obj.size
-                    x = obj.x
-                    y = obj.y
-                    f.write("{},{},{},{}\n".format(id, s, x, y))
+            if not list_objs:
+                return
+            keys = list(list_objs[0].__dict__.keys())
+            f.write(','.join(keys) + '\n')
+            for obj in list_objs:
+                values = [str(getattr(obj, k)) for k in keys)]
+                f.write(','.joine(values) + '\n')
 
     @classmethod
     def load_from_file_csv(cls):
@@ -106,11 +97,11 @@ class Base:
         list_objs = []
         try:
             with open(filename, "r") as f:
-                form = f.readline().replace('\n', '').split(',')
-                for line in f:
-                    values = line.replace('\n', '').split(',')
-                    dictionary = dict(zip(form, int(value)))
-                    obj = cls.create(**dictionary)
+                csv_r = csv.DictReader(f)
+                for line in csv_r:
+                    for k, v in line.items():
+                            line[k] = int(v)
+                    obj = cls.create(**line)
                     list_objs.append(obj)
             return list_objs
         except IOError:
