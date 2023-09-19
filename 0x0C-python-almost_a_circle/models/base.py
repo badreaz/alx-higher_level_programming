@@ -87,7 +87,7 @@ class Base:
             f.write(','.join(keys) + '\n')
             for obj in list_objs:
                 values = list(obj.__dict__.values())
-                f.write(','.joine(values) + '\n')
+                f.write(','.join(values) + '\n')
 
     @classmethod
     def load_from_file_csv(cls):
