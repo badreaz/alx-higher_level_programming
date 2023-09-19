@@ -4,6 +4,7 @@ import unittest
 import os
 import io
 from models.rectangle import Rectangle
+from unittest.mock import patch
 
 
 class TestRectangle(unittest.TestCase):
@@ -52,12 +53,18 @@ class TestRectangle(unittest.TestCase):
         r1_d = "##\n##\n##\n"
         r2_d = " ##\n ##\n ##\n"
         r3_d = "\n ##\n ##\n ##\n"
-        r1.display()
-        self.assertEqual(r1_d, io.StringIO().getvalue())
-        r2.display()
-        self.assertEqual(r2_d, io.StringIO().getvalue())
-        r3.display()
-        self.assertEqual(r3_d, io.StringIO().getvalue())
+        with patch('sys.stdout', new_callable=io.StringIO) as out:
+            r1.display()
+            display = out.getvalue()
+        self.assertEqual(r1_d, display)
+        with patch('sys.stdout', new_callable=io.StringIO) as out:
+            r2.display()
+            display = out.getvalue()
+        self.assertEqual(r2_d, display)
+        with patch('sys.stdout', new_callable=io.StringIO) as out:
+            r3.display()
+            display = out.getvalue()
+        self.assertEqual(r3_d, display)
 
     def test_update(self):
         """ tests for update method """
