@@ -86,7 +86,7 @@ class Base:
             keys = list(list_objs[0].__dict__.keys())
             f.write(','.join(keys) + '\n')
             for obj in list_objs:
-                values = [str(getattr(obj, k)) for k in keys]
+                values = list(obj.__dict__.values())
                 f.write(','.joine(values) + '\n')
 
     @classmethod
