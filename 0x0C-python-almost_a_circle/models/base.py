@@ -83,10 +83,10 @@ class Base:
         with open(filename, "w") as f:
             if not list_objs:
                 return
-            keys = list(list_objs[0].__dict__.keys())
+            keys = list_objs[0].to_dictionary().keys()
             f.write(','.join(keys) + '\n')
             for obj in list_objs:
-                values = list(obj.__dict__.values())
+                values = map(str, obj.to_dictionary().values())
                 f.write(','.join(values) + '\n')
 
     @classmethod
