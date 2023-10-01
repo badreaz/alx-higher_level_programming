@@ -31,9 +31,9 @@ Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/user/alx/alx_higher_level_programming/0x07-python-test_driven_development/2-matrix_divided.py", line 13, in matrix_divided
-    raise ZeroDivisionError("division bby zero")
+...
 ZeroDivisionError: division by zero
 >>> matrix_divided([[0, 0], [0, 0]], 1)
+[[0.0, 0.0], [0.0, 0.0]]
+>>> matrix_divided([[4, 8], [33, 20]], float('inf'))
 [[0.0, 0.0], [0.0, 0.0]]
