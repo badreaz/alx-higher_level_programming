@@ -5,6 +5,10 @@
 8
 >>> add_integer(13, -2)
 11
+>>> add_integer(4, 4.2)
+8
+>>> add_integer(-2, 13)
+11
 >>> add_integer(None)
 Traceback (most recent call last):
 ...
