@@ -8,7 +8,7 @@ def matrix_mul(m_a, m_b):
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
     elif not isinstance(m_b, list):
-        raise TypeError("m_b must be list")
+        raise TypeError("m_b must be a list")
     elif not all(isinstance(r, list) for r in m_a):
         raise TypeError("m_a must be a list of lists")
     elif not all(isinstance(r, list) for r in m_b):
