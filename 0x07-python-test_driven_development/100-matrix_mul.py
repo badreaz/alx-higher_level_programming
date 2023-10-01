@@ -17,11 +17,13 @@ def matrix_mul(m_a, m_b):
         raise ValueError("m_a can't be empty")
     elif m_b == [] or m_b == [[]]:
         raise ValueError("m_b can't be empty")
-    elif not all((isinstance(n, int) or isinstance(n, float))
-            for n in [ele for r in m_a for ele in r]):
+    elif not all(
+            isinstance(n, int) or isinstance(n, float) for n in [
+                ele for r in m_a for ele in r]):
         raise ValueError("m_a should contain only integers or floats")
-    elif not all(isinstance(n, int) or isinstance(n, float)
-            for n in [ele for r in m_b for ele in r]):
+    elif not all(
+            isinstance(n, int) or isinstance(n, float) for n in [
+                ele for r in m_b for ele in r]):
         raise ValueError("m_b should contain only integers or floats")
     for r_a in m_a:
         if len(r_a) != len(m_a[0]):
