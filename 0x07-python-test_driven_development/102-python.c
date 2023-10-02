@@ -7,16 +7,15 @@
  */
 void print_python_string(PyObject *p)
 {
-	PyObject *encoding;
-
 	printf("[.] string object info\n");
 	if (PyUnicode_Check(p))
 	{
-		encoding = PyObject_GetAttrString(p, "encoding");
-		if (encoding && PyUnicode_Check(encoding))
-			printf("  type: %s\n", PyUnicode_AsUTF8(encoding));
-		printf("  length: %zd\n", PyUnicode_GET_LENGTH(p));
-		printf("  value: %s\n", PyUnicode_AsUTF8(p));
+		if (PyUnicode_IS_COMPACT_ASCII(p))
+			printf("  type: compact ascii\n");
+		else
+			printf("  type: compact unicode object\n");
+		printf("  length: %zd\n", PyUnicode_GET_SIZE(p));
+		printf("  value: %s\n", PyUnicode_AS_UNICODE(p));
 	}
 	else
 		printf("  [ERROR] Invalid String Object\n");
