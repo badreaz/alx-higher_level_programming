@@ -15,7 +15,7 @@ void print_python_string(PyObject *p)
 		else
 			printf("  type: compact unicode object\n");
 		printf("  length: %zd\n", PyUnicode_GET_SIZE(p));
-		printf("  value: %s\n", (char *)PyUnicode_AS_UNICODE(p));
+		printf("  value: %ls\n", PyUnicode_AS_UNICODE(p));
 	}
 	else
 		printf("  [ERROR] Invalid String Object\n");
