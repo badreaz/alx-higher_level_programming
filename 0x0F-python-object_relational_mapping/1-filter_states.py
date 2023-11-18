@@ -15,7 +15,7 @@ if __name__ == '__main__':
             passwd=argv[2], db=argv[3], port=3306)
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHILE name REGEXP'^N' \
+    cur.execute("SELECT * FROM states WHILE name like 'N%' \
             ORDER BY states.id ACS")
     rows = cur.fetchall()
     for row in rows:
