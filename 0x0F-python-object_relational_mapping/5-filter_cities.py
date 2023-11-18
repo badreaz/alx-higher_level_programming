@@ -14,7 +14,7 @@ if __name__ == '__main__':
             passwd=argv[2], db=argv[3], port=3306)
 
     cur = db.cursor()
-    cur.execute("""SELECT cities.namei, cities.id FROM cities JOIN states\
+    cur.execute("""SELECT cities.name, cities.id FROM cities JOIN states\
             ON cities.state_id = states.id\
             WHERE states.name LIKE BINARY $(state)s\
             ORDER BY cities.id ASC""", {'name': argv[4]})
