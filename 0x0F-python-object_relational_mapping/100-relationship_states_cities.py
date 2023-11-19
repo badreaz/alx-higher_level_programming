@@ -13,14 +13,14 @@ if __name__ == '__main__':
     """ create objects """
 
     engine = create_engine(
-            'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
                 argv[1], argv[2], argv[3]))
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
     state = State(name="California")
-    city = City(name="SanFrancisco")
+    city = City(name="San Francisco")
     state.cities.append(city)
     session.add(state)
     session.commmit()
