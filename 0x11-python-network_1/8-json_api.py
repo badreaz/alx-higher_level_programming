@@ -10,7 +10,7 @@ if __name__ == '__main__':
     if (len(argv) == 1):
         q = ""
     else:
-        q = argv[2]
+        q = argv[1]
     value = {"q": q}
     r = requests.post("http://0.0.0.0:5000/search_user", data=value)
     try:
