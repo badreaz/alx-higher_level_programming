@@ -9,6 +9,6 @@ from requests.auth import HTTPBasicAuth
 
 if __name__ == '__main__':
     basic_auth = HTTPBasicAuth(argv[1], argv[2])
-    r = requests.get("https://api.githup.com/user", basic_auth)
+    r = requests.get("https://api.githup.com/user", auth=basic_auth)
     id = r.json().get("id")
     print(id)
